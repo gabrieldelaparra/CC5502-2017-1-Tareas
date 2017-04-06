@@ -1,3 +1,1 @@
-"C:\Program Files (x86)\JetBrains\CLion 2017.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\Tarea1.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\Tarea1.dir/objects.a @CMakeFiles\Tarea1.dir\objects1.rsp
-C:\MinGW\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\Tarea1.dir/objects.a -Wl,--no-whole-archive  -o Tarea1.exe -Wl,--out-implib,libTarea1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Tarea1.dir\linklibs.rsp
+/usr/bin/c++   -g   CMakeFiles/Tarea1.dir/main.cpp.o CMakeFiles/Tarea1.dir/Point.cpp.o  -o Tarea1 
