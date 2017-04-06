@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/clgadel/Desktop/DCC/2 - 2017.01/CC5502 - Geometria/Tareas/Tarea1/main.cpp
+iostream
+-
+stdio.h
+-
+
