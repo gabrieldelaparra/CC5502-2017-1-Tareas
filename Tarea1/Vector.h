@@ -32,7 +32,7 @@ public:
 
     Vector<T> UnitVector() {
         Vector<T> newVector(0, 0, 0);
-        double mag = Magnitude();
+        double mag = Length();
         if (mag != 0) {
             newVector.Point2.X = Point2.X / mag;
             newVector.Point2.Y = Point2.Y / mag;
@@ -42,7 +42,7 @@ public:
         return newVector;
     }
 
-    double Magnitude() {
+    double Length() {
         return std::sqrt(std::pow(Point2.X - Point1.X, 2)
                          + std::pow(Point2.Y - Point1.Y, 2)
                          + std::pow(Point2.Z - Point1.Z, 2));
@@ -51,8 +51,8 @@ public:
     template<class T2>
     Vector<T> Cross(Vector<T2> &v2) {
         Vector<T> newVector(0, 0, 0);
-        double mag = Magnitude();
-        if (mag != 0) {
+        double len = Length();
+        if (len != 0) {
             newVector.Point2.X = Point2.Y * T(v2.Point2.Z) - Point2.Z * T(v2.Point2.Y);
             newVector.Point2.Y = Point2.Z * T(v2.Point2.X) - Point2.X * T(v2.Point2.Z);
             newVector.Point2.Z = Point2.X * T(v2.Point2.Y) - Point2.Y * T(v2.Point2.X);

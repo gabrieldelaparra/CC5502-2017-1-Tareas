@@ -16,9 +16,15 @@
 template<class T>
 class Segment {
 private:
-    template <class T2>
-    double PositionOfPoint(Point<T2> &p){
-        return ((Point2.X - Point1.X) * (T(p.Y) - Point1.Y)) - ((Point2.Y - Point1.X) * (T(p.X) - Point1.X));
+    template<class T2>
+    double _positionOfPoint(Point<T2> &p) {
+        return _positionOfPoint(Point2, Point1, p);
+        //return ((Point2.X - Point1.X) * (T(p.Y) - Point1.Y)) - ((Point2.Y - Point1.X) * (T(p.X) - Point1.X));
+    }
+
+    template<class T2>
+    double _positionOfPoint(Point<T> &p1, Point<T> &p2, Point<T2> &p3) {
+        return (p1.X - T(p3.X)) * (p2.Y - T(p3.Y)) - (p2.X - T(p3.X)) * (p1.Y - T(p3.Y));
     }
 
 public:
@@ -33,25 +39,60 @@ public:
 
     Segment(Point<T> p1, Point<T> p2) : Point1(p1), Point2(p2) {};
 
-    template <class T2>
-    bool isLeft(Point<T2> &p){
-        return PositionOfPoint(p) < 0;
+    template<class T2>
+    int positionOfPoint(Point<T2> &p) {
+        if (isLeft(p))
+            return -1;
+        else if (isRight(p))
+            return 1;
+        else return 0;
     }
 
-    template <class T2>
-    bool isRight(Point<T2> &p){
-        return PositionOfPoint(p) > 0;
+    template<class T2>
+    bool isLeft(Point<T2> &p) {
+        return _positionOfPoint(p) < 0;
     }
 
-    template <class T2>
-    bool isOn(Point<T2> &p){
-        return PositionOfPoint(p) == 0;
+    template<class T2>
+    bool isRight(Point<T2> &p) {
+        return _positionOfPoint(p) > 0;
+    }
+
+    template<class T2>
+    bool isOn(Point<T2> &p) {
+        return _positionOfPoint(p) == 0;
+    }
+
+    template<class T2>
+    bool isBetween(Point<T> &p1, Point<T> &p2, Point<T2> &p){
+        return Length(p1, p) + Length(p, p2) == Length(p1, p2);
+    }
+
+    template<class T2>
+    bool isOver(Point<T2> &p) {
+        return isOn(p) &&
+                isBetween(Point1, Point2, p);
+    }
+
+    template<class T2>
+    bool Intersects(Segment<T2> &s) {
+        return ((std::max(Point1.X, Point2.X) >= std::min(s.Point1.X, s.Point2.X)) &&
+                (std::max(s.Point1.X, s.Point2.X) >= std::min(Point1.X, Point2.X)) &&
+                (std::max(Point1.Y, Point2.Y) >= std::min(s.Point1.Y, s.Point2.Y)) &&
+                (std::max(s.Point1.Y, s.Point2.Y) >= std::min(Point1.Y, Point2.Y)) &&
+                (_positionOfPoint(s.Point1, Point2, Point1) * _positionOfPoint(Point2, s.Point2, Point1) >= 0) &&
+                (_positionOfPoint(Point1, s.Point2, s.Point1) * _positionOfPoint(s.Point2, Point2, s.Point1) >= 0)
+        );
+    }
+
+    double Length(Point<T> &p1, Point<T> &p2){
+        return std::sqrt(std::pow(p2.X - p1.X, 2)
+                         + std::pow(p2.Y - p1.Y, 2)
+                         + std::pow(p2.Z - p1.Z, 2));
     }
 
     double Length() {
-        return std::sqrt(std::pow(Point2.X - Point1.X, 2)
-                         + std::pow(Point2.Y - Point1.Y, 2)
-                         + std::pow(Point2.Z - Point1.Z, 2));
+        return Length(Point1, Point2);
     }
 
     template<class T2>
