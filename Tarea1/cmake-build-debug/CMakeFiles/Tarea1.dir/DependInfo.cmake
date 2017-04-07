@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.cpp" "/home/wororo/CLionProjects/TareasGeometria/Tarea1/cmake-build-debug/CMakeFiles/Tarea1.dir/Point.cpp.o"
   "/home/wororo/CLionProjects/TareasGeometria/Tarea1/main.cpp" "/home/wororo/CLionProjects/TareasGeometria/Tarea1/cmake-build-debug/CMakeFiles/Tarea1.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

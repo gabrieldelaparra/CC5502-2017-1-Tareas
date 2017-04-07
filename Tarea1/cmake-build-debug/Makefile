@@ -123,33 +123,6 @@ Tarea1/fast:
 	$(MAKE) -f CMakeFiles/Tarea1.dir/build.make CMakeFiles/Tarea1.dir/build
 .PHONY : Tarea1/fast
 
-Point.o: Point.cpp.o
-
-.PHONY : Point.o
-
-# target to build an object file
-Point.cpp.o:
-	$(MAKE) -f CMakeFiles/Tarea1.dir/build.make CMakeFiles/Tarea1.dir/Point.cpp.o
-.PHONY : Point.cpp.o
-
-Point.i: Point.cpp.i
-
-.PHONY : Point.i
-
-# target to preprocess a source file
-Point.cpp.i:
-	$(MAKE) -f CMakeFiles/Tarea1.dir/build.make CMakeFiles/Tarea1.dir/Point.cpp.i
-.PHONY : Point.cpp.i
-
-Point.s: Point.cpp.s
-
-.PHONY : Point.s
-
-# target to generate assembly for a file
-Point.cpp.s:
-	$(MAKE) -f CMakeFiles/Tarea1.dir/build.make CMakeFiles/Tarea1.dir/Point.cpp.s
-.PHONY : Point.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,9 +159,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Tarea1"
-	@echo "... Point.o"
-	@echo "... Point.i"
-	@echo "... Point.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

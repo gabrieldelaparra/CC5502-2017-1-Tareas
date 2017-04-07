@@ -84,10 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.cpp">
+		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h">
 			<Option target="Tarea1"/>
 		</Unit>
-		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h">
+		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Polygon.h">
+			<Option target="Tarea1"/>
+		</Unit>
+		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h">
+			<Option target="Tarea1"/>
+		</Unit>
+		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Vector.h">
 			<Option target="Tarea1"/>
 		</Unit>
 		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/main.cpp">
