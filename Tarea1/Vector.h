@@ -7,10 +7,12 @@
 
 #ifndef TAREA1_VECTOR_H
 #define TAREA1_VECTOR_H
-
+#include "Point.h"
 
 class Vector {
-
+public:
+    Point A;
+    Point B;
 };
 
 

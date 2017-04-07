@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/main.cpp
 iostream
 -
-stdio.h
--
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
 

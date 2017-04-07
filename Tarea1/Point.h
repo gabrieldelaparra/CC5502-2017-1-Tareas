@@ -1,66 +1,63 @@
 //
 // Created by wororo on 06-04-17.
 //
-#include <iostream>
-#include <stdio.h>
-
-using namespace std;
 
 #ifndef TAREA1_POINT_H
 #define TAREA1_POINT_H
 
-
+template <class T>
 class Point{
 public:
-    double X = 0;
-    double Y = 0;
-    double Z = 0;
+    Point() :X(T()), Y(T()){};
+    Point(T x, T y) : X(x) , Y(y) {};
 
+    T X = 0;
+    T Y = 0;
 
-    bool operator== (Point& otherPoint) {
-        return X == otherPoint.X && Y == otherPoint.Y && Z == otherPoint.Z;
+    template <class T2>
+    bool operator== (Point<T2>& otherPoint) {
+        return X == T(otherPoint.X) && Y == T(otherPoint.Y);
     }
 
-    Point operator+ (Point &otherPoint) {
-        Point newPoint;
+    template <class T2>
+    Point<T> operator+ (Point<T2> &otherPoint) {
+        Point<T> newPoint;
 
-        newPoint.X = X + otherPoint.X;
-        newPoint.Y = Y + otherPoint.Y;
-        newPoint.Z = Z + otherPoint.Z;
+        newPoint.X = X + T(otherPoint.X);
+        newPoint.Y = Y + T(otherPoint.Y);
 
         return newPoint;
     }
 
-    Point operator- (Point &otherPoint){
-        Point newPoint;
+    template <class T2>
+    Point<T> operator- (Point<T2> &otherPoint){
+        Point<T> newPoint;
 
         newPoint.X = X - otherPoint.X;
         newPoint.Y = Y - otherPoint.Y;
-        newPoint.Z = Z - otherPoint.Z;
 
         return newPoint;
     }
 
-    Point& operator+= (Point &otherPoint) {
-        X = X + otherPoint.X;
-        Y = Y + otherPoint.Y;
-        Z = Z + otherPoint.Z;
+    template <class T2>
+    Point<T>& operator+= (Point<T2> &otherPoint) {
+        X = X + T(otherPoint.X);
+        Y = Y + T(otherPoint.Y);
 
         return (*this);
     }
 
-    Point& operator-= (Point &otherPoint) {
-        X = X - otherPoint.X;
-        Y = Y - otherPoint.Y;
-        Z = Z - otherPoint.Z;
+    template <class T2>
+    Point<T>& operator-= (Point<T2> &otherPoint) {
+        X = X - T(otherPoint.X);
+        Y = Y - T(otherPoint.Y);
 
         return (*this);
     }
 
     void ToString() const {
-        printf("X: %.3f Y: %.3f Z: %.3f\n ", X, Y, Z);
+        std::cout << " X: " << X << " Y: " << Y << std::endl;
     }
 };
-
 
 #endif //TAREA1_POINT_H
