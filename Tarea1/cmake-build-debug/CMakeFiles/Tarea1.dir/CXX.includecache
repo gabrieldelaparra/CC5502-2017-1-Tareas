@@ -6,9 +6,41 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/clgadel/Desktop/DCC/2 - 2017.01/CC5502 - Geometria/Tareas/Tarea1/main.cpp
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Polygon.h
+vector
+-
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+Segment.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h
+
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h
 iostream
 -
-stdio.h
+cmath
 -
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Vector.h
+iostream
+-
+cmath
+-
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/main.cpp
+iostream
+-
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+Vector.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Vector.h
+Segment.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h
+Polygon.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Polygon.h
 
