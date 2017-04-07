@@ -1,0 +1,12 @@
+En esta tarea se vio la implementación de elementos de la geometría computaional y sus operaciones. Se analizaron casos de precisión y se confirmó lo explicado en clase.
+
+Con respecto a las preguntas del enunciado, se pudo apreciar que, en la mayoría de los cálculos, las operaciones tienen correctitud para valores con mantisa <= 16. Para valores mayores, hay errores de aproximación, entregando los peores resultados para encontrar si un punto está sobre una recta o si un polígono pueda ser con orientación positiva o negativa, dependiendo de los valores entregados.
+
+Lo anterior se probó para valores muy pequeños (.9999999999999999) y muy grandes (1234567890123456). Ambos con mantisa 16. En ambos casos, se perdió precisión. Dado el resultado anterior, no se vió cambios para cuando los valores fueran primos. Se probó con valores desde https://primes.utm.edu/lists/small/millions/ y los resultados fueron correctos para primos de mantisa == 9.
+
+Se intentó responder la pregunta de para que casos la evaluación de si un punto está a la derecha o la izquierda era más preciso, sin embargo, como se menciona en varias fuentes, el error existe por ambos lados.
+- https://people.mpi-inf.mpg.de/~mehlhorn/ftp/classroomExamplesNonrobustness.pdf
+- https://www.youtube.com/watch?v=yuGo2m_B5V8
+- https://github.com/mikolalysenko/robust-arithmetic-notes
+
+Repositorio tarea: (Privado, favor solicitar acceso) https://github.com/gabrieldelaparra/TareasGeometria
