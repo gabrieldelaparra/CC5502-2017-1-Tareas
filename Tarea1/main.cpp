@@ -175,6 +175,19 @@ int main() {
     ps1.Y = 1.0000000000000001;
     printf("L*: %d R: %d On: %d\n", s1.isLeft(ps1), s1.isRight(ps1), s1.isOn(ps1));
 
+    //Valores grandes:
+    Segment<double> s2(0, 0, 0, 1234567890123456, 1234567890123456, 0);
+    printf("Segment2: ");
+    s1.ToString();
+
+    Point<double> ps2(1, 0);
+    printf("L: %d R*: %d On: %d\n", s1.isLeft(ps1), s1.isRight(ps1), s1.isOn(ps1));
+
+    //Prueba con primos:
+    ps1.X = 961748941;
+    ps1.Y = 961748941;
+    printf("L: %d R: %d On*: %d\n", s1.isLeft(ps1), s1.isRight(ps1), s1.isOn(ps1));
+
     Segment<double> is1(1, 0, 0, 1, 2, 0);
     Segment<double> is2(0, 1, 0, 2, 1, 0);
 
