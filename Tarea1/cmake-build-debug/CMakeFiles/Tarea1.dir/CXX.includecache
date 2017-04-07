@@ -8,6 +8,14 @@
 
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
 
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h
+iostream
+-
+cmath
+-
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Vector.h
 iostream
 -
@@ -23,4 +31,6 @@ Point.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
 Vector.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Vector.h
+Segment.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h
 
