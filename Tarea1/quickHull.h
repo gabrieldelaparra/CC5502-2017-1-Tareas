@@ -7,6 +7,7 @@
 
 
 #include <vector>
+#include <algorithm>
 #include "Point.h"
 #include "Polygon.h"
 
@@ -53,7 +54,7 @@ public:
         Point<T> p;
         for (int i = 0; i < Sk.size(); ++i) {
             double tmp = distance(s,Sk[i]);
-            if(tmp >maxDistance){
+            if(tmp >= maxDistance){
                 maxDistance =tmp;
                 p = Sk[i];
             }
@@ -61,11 +62,41 @@ public:
         return p;
     }
 
-    std::vector<Point<T>> FindHull(std::vector<Point<T>> Sk, Point<T> P, Point<T> Q){
-        std::vector<Point<T>> s;
+    void FindHull(std::vector<Point<T>> Sk, Point<T> P, Point<T> Q, Polygon<T> *convex){
         if(Sk.size() == 0)
-            return s;
+            return;
+
         Point<T> C = farthestPoint(Sk, P, Q);
+
+//        typename std::vector<Point<T>>::iterator qIndex;
+//        qIndex = std::find(Sk.begin(), Sk.end(), Q);
+//        if (qIndex == Sk.end()) return;
+//
+//        convex->Points.insert(qIndex, C);
+        convex->Points.push_back(C);
+
+        std::vector<Point<T>> S1;
+        Segment<T> s1(P, C);
+        for (int i = 0; i < Sk.size(); ++i) {
+            if (Sk[i] == P) continue;
+            if (Sk[i] == C) continue;
+
+            if (s1.isRight(Sk[i]))
+                S1.push_back(Sk[i]);
+        }
+
+        FindHull(S1, P, C, convex);
+
+        std::vector<Point<T>> S2;
+        Segment<T> s2(C, Q);
+        for (int i = 0; i < Sk.size(); ++i) {
+            if (Sk[i] == Q) continue;
+            if (Sk[i] == C) continue;
+
+            if (s2.isRight(Sk[i]))
+                S2.push_back(Sk[i]);
+        }
+        FindHull(S2, C, Q, convex);
 
     }
 
@@ -90,42 +121,11 @@ public:
             if(s.isLeft(points[i]))
                 S2.push_back(points[i]);
         }
-        std::vector<Point<T>> hull1 = FindHull(S1, left, right);
-        std::vector<Point<T>> hull2 = FindHull(S2, right, left);
-        //TODO: Agregar esas weas al hull;
+
+        FindHull(S1, left, right, &convex);
+        FindHull(S2, right, left, &convex);
+        return convex;
     }
-
-//    FindHull (Sk, P, Q)
-//    {
-//        // Find points on convex hull from the set Sk of points
-//        // that are on the right side of the oriented line from P to Q
-//        If Sk has no point, then return.
-
-//        From the given set of points in Sk, find farthest point, say C, from segment PQ
-
-//        Add point C to convex hull at the location between P and Q
-//        Three points P, Q, and C partition the remaining points of Sk into 3 subsets: S0, S1, and S2
-//        where S0 are points inside triangle PCQ, S1 are points on the right side of the oriented
-//        line from  P to C, and S2 are points on the right side of the oriented line from C to Q.
-//                FindHull(S1, P, C)
-//        FindHull(S2, C, Q)
-//    }
-//    Output = convex hull
-
-
-
-//    QuickHull (S)
-//    {
-//        // Find convex hull from the set S of n points
-//        Convex Hull := {}
-//        Find left and right most points, say A & B, and add A & B to convex hull
-
-//        Segment AB divides the remaining (n-2) points into 2 groups S1 and S2
-//        where S1 are points in S that are on the right side of the oriented line from A to B,
-//        and S2 are points in S that are on the right side of the oriented line from B to A
-//        FindHull (S1, A, B)
-//        FindHull (S2, B, A)
-//    }
 };
 
 #endif //TAREA1_QUICKHULL_H

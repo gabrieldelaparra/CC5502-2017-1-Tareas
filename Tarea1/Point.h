@@ -23,7 +23,7 @@ public:
 
     //TODO: Fix Posibles problemas con == entre <double> e <int>;
     template<class T2>
-    bool operator==(Point<T2> &p2) {
+    bool operator==(const Point<T2> &p2) {
         return X == T(p2.X)
                && Y == T(p2.Y)
                && Z == T(p2.Z);

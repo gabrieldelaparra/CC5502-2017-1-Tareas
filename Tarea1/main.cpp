@@ -4,6 +4,7 @@
 #include "Segment.h"
 #include "Polygon.h"
 #include "giftWrapping.h"
+#include "quickHull.h"
 
 int main() {
 
@@ -253,16 +254,21 @@ int main() {
     std::vector<Point<double>> d2 = {Point<double>(5, 5),
                                      Point<double>(1, 1),
                                      Point<double>(3, 2),
-                                     Point<double>(1, 10),
+                                     Point<double>(0, 10),
                                      Point<double>(2, 3),
                                      Point<double>(4, 7),
-                                     Point<double>(10, 1),
+                                     Point<double>(11, 1),
                                      Point<double>(5, 2),
                                      Point<double>(8, 4),
-                                     Point<double>(10, 10),
+                                     Point<double>(10, 11),
                                      Point<double>(8, 8)};
     printf("CH\n");
     gw.giftWrapping(d2).ToString();
+    QuickHull<double> qh;
+
+    printf("QH\n");
+    qh.quickHull(d2).ToString();
+
 
     return 0;
 }
