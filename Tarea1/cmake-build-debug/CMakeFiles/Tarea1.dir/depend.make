@@ -5,5 +5,6 @@ CMakeFiles/Tarea1.dir/main.cpp.o: ../Point.h
 CMakeFiles/Tarea1.dir/main.cpp.o: ../Polygon.h
 CMakeFiles/Tarea1.dir/main.cpp.o: ../Segment.h
 CMakeFiles/Tarea1.dir/main.cpp.o: ../Vector.h
+CMakeFiles/Tarea1.dir/main.cpp.o: ../giftWrapping.h
 CMakeFiles/Tarea1.dir/main.cpp.o: ../main.cpp
 

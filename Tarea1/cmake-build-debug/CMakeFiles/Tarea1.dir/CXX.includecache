@@ -32,6 +32,14 @@ cmath
 Point.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
 
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/giftWrapping.h
+vector
+-
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
+Polygon.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Polygon.h
+
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/main.cpp
 iostream
 -
@@ -43,4 +51,6 @@ Segment.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Segment.h
 Polygon.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Polygon.h
+giftWrapping.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/giftWrapping.h
 

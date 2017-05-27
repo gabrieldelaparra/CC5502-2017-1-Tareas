@@ -23,6 +23,24 @@ class Polygon {
 public:
     std::vector<Point<T>> Points;
 
+    void ToString() const {
+        for(int i=0; i< Points.size();i++){
+            if(i==0 && Points.size()>0)
+                std::cout << "( "<< std::endl;
+            if(i==Points.size()-1)
+                std::cout << " )" << std::endl;
+            std::cout << "(" << Points[i].X
+                      << ", " << Points[i].Y
+                      << ", " << Points[i].Z
+                      << ")"
+                      << std::endl;
+        }
+    }
+
+    void add(Point<T> p){
+        Points.push_back(p);
+    }
+
     bool isCCW() {
         double sum = 0;
         for (int i = 0; i < Points.size(); ++i) {

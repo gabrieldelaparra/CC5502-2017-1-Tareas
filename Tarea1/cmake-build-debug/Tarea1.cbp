@@ -96,7 +96,13 @@
 		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/Vector.h">
 			<Option target="Tarea1"/>
 		</Unit>
+		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/giftWrapping.h">
+			<Option target="Tarea1"/>
+		</Unit>
 		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/main.cpp">
+			<Option target="Tarea1"/>
+		</Unit>
+		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/quickHull.h">
 			<Option target="Tarea1"/>
 		</Unit>
 		<Unit filename="/home/wororo/CLionProjects/TareasGeometria/Tarea1/CMakeLists.txt">

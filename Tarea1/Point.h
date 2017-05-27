@@ -30,6 +30,13 @@ public:
     }
 
     template<class T2>
+    bool operator!=(Point<T2> &p2) {
+        return X != T(p2.X)
+               || Y != T(p2.Y)
+               || Z != T(p2.Z);
+    }
+
+    template<class T2>
     Point<T> operator+(Point<T2> &p2) {
         Point<T> newPoint(X + T(p2.X),
                           Y + T(p2.Y),

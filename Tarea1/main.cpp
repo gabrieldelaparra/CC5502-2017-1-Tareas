@@ -3,6 +3,7 @@
 #include "Vector.h"
 #include "Segment.h"
 #include "Polygon.h"
+#include "giftWrapping.h"
 
 int main() {
 
@@ -240,6 +241,28 @@ int main() {
     ps1.Y = 2;
     ps1.ToString();
     printf("pol1.isInside(ps1): %d\n", pol1.isInside(ps1));
+
+    std::vector<Point<double>> d = {Point<double>(1, 1), Point<double>(3, 1), Point<double>(2, 3), Point<double>(2, 2)};
+    GiftWrapping<double> gw;
+    printf("Leftmost:");
+    gw.leftMost(d).ToString();
+    printf("CH\n");
+    gw.giftWrapping(d).ToString();
+
+
+    std::vector<Point<double>> d2 = {Point<double>(5, 5),
+                                     Point<double>(1, 1),
+                                     Point<double>(3, 2),
+                                     Point<double>(1, 10),
+                                     Point<double>(2, 3),
+                                     Point<double>(4, 7),
+                                     Point<double>(10, 1),
+                                     Point<double>(5, 2),
+                                     Point<double>(8, 4),
+                                     Point<double>(10, 10),
+                                     Point<double>(8, 8)};
+    printf("CH\n");
+    gw.giftWrapping(d2).ToString();
 
     return 0;
 }
