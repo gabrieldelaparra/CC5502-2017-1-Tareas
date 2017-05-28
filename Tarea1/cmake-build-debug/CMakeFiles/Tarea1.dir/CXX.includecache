@@ -35,6 +35,8 @@ Point.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/giftWrapping.h
 vector
 -
+ctime
+-
 Point.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
 Polygon.h
@@ -55,11 +57,25 @@ giftWrapping.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/giftWrapping.h
 quickHull.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/quickHull.h
+pointGenerator.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/pointGenerator.h
+
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/pointGenerator.h
+vector
+-
+stdlib.h
+-
+time.h
+-
+Point.h
+/home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h
 
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/quickHull.h
 vector
 -
 algorithm
+-
+ctime
 -
 Point.h
 /home/wororo/CLionProjects/TareasGeometria/Tarea1/Point.h

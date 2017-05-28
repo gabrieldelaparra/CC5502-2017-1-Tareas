@@ -1,0 +1,80 @@
+# Generalidades:
+
+En esta tarea se requieren construir dos algoritmos de cerradura convexa.
+Se implementó GiftWrapping y QuickHull.
+Ambos algoritmos se desarrollaron desde el pseudocódigo en Wikipedia.
+Ambos algoritmos se programaron para funcionar con Templates.
+Por simplicidad, ambos algoritmos se programaron en los archivos de headers (.h).
+Para el cálculo del tiempo de ejecución se trabajó con la función clock_gettime.
+    Al revisar los resultados, se pueden apreciar ciertas diferencias entre los tiempos,
+    que no concuerdan en todos los casos con lo esperado GW: O(nh) vs QH: O(n log n).
+    Dado a que se trabajó en una máquina Virtual (Oracle VirtualBox) con Ubuntu, montada sobre Windows 7;
+    Se propone que el método para el cálculo de tiempo de ejecución podría estar incorrecto.
+
+# Sobre las restricciones y conseraciones:
+
+Se realizaron ciertas pruebas:
+1. 4 puntos: triangulo con punto intermedio. La cerradura fue correcta.
+2. 10 puntos: un cuadrado con varios puntos en el centro. La cerradura fue correcta.
+3. 1024 puntos: Puntos generados al azar con una función srand, con seed del time().
+    La cerradura se presume correcta.
+    Ambos algoritmos dieron el mismo resultado: Mismos puntos, mismo orden.
+
+No se tomaron muchos supuestos, es decir, no se analizaron en profundidad los casos degenerados.
+Si bien se estudiaron varios posibles casos degenerados en clases, no se probaron para esta implementación.
+
+# Resultados
+La información de la ejecución del código se entrega en el siguiente formato:
+GiftWrapping elapsed time: 2.428587 (ms) //Tiempo de ejecución
+Polygon: [15] // Número de puntos y lista de puntos:
+((1, 354, 0),
+(5, 33, 0),
+(9, 17, 0),
+(24, 8, 0),
+(48, 4, 0),
+(337, 0, 0),
+(974, 0, 0),
+(999, 27, 0),
+(998, 967, 0),
+(974, 994, 0),
+(877, 999, 0),
+(152, 999, 0),
+(54, 988, 0),
+(6, 982, 0),
+(2, 598, 0))
+
+De la misma manera para QuickHull:
+
+QuickHull elapsed time: 0.832499 (ms)
+Polygon: [15]
+((1, 354, 0),
+(5, 33, 0),
+(9, 17, 0),
+(24, 8, 0),
+(48, 4, 0),
+(337, 0, 0),
+(974, 0, 0),
+(999, 27, 0),
+(998, 967, 0),
+(974, 994, 0),
+(877, 999, 0),
+(152, 999, 0),
+(54, 988, 0),
+(6, 982, 0),
+(2, 598, 0))
+
+Al realizar varias pruebas se puede construir la siguiente tabla:
+
+Iter	Puntos	Poly	GiftWrapp(ms)	QuickHull(ms)
+1	    1024	15	    2.428587	    0.832499
+2	    1024	16	    0.490488	    0.393661
+3	    1024	21	    0.980652	    0.659969
+4	    1024	16	    0.501581	    0.402675
+5	    1024	20	    0.655186	    0.438908
+6	    1024	15	    0.468952	    0.400286
+7	    1024	20	    0.62599	        0.690908
+8	    1024	17	    0.561482	    1.800043
+9	    1024	18	    0.776858	    0.676925
+10	    1024	15	    0.47111	        0.702385
+
+

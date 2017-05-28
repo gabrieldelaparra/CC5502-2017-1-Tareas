@@ -8,11 +8,14 @@
 
 #include <vector>
 #include <algorithm>
+#include <ctime>
 #include "Point.h"
 #include "Polygon.h"
 
 template<class T>
 class QuickHull {
+
+    #define BILLION 1E9
 
 public:
     QuickHull() {};
@@ -68,13 +71,6 @@ public:
 
         Point<T> C = farthestPoint(Sk, P, Q);
 
-//        typename std::vector<Point<T>>::iterator qIndex;
-//        qIndex = std::find(Sk.begin(), Sk.end(), Q);
-//        if (qIndex == Sk.end()) return;
-//
-//        convex->Points.insert(qIndex, C);
-        convex->Points.push_back(C);
-
         std::vector<Point<T>> S1;
         Segment<T> s1(P, C);
         for (int i = 0; i < Sk.size(); ++i) {
@@ -85,6 +81,9 @@ public:
                 S1.push_back(Sk[i]);
         }
 
+        if(std::find(convex->Points.begin(), convex->Points.end(), P) == convex->Points.end()) {
+            convex->add(P);
+        }
         FindHull(S1, P, C, convex);
 
         std::vector<Point<T>> S2;
@@ -96,16 +95,25 @@ public:
             if (s2.isRight(Sk[i]))
                 S2.push_back(Sk[i]);
         }
+
+        if(std::find(convex->Points.begin(), convex->Points.end(), C) == convex->Points.end()) {
+            convex->add(C);
+        }
+
         FindHull(S2, C, Q, convex);
 
+        if(std::find(convex->Points.begin(), convex->Points.end(), Q) == convex->Points.end()) {
+            convex->add(Q);
+        }
     }
 
     Polygon<T> quickHull(std::vector<Point<T>> points) {
+        struct timespec requestStart, requestEnd;
+        clock_gettime(CLOCK_REALTIME,&requestStart);
+
         Polygon<T> convex;
         Point<T> left = leftMost(points);
         Point<T> right = rightMost(points);
-        convex.add(left);
-        convex.add(right);
 
         std::vector<Point<T>> S1;
         std::vector<Point<T>> S2;
@@ -124,6 +132,13 @@ public:
 
         FindHull(S1, left, right, &convex);
         FindHull(S2, right, left, &convex);
+
+        clock_gettime(CLOCK_REALTIME,&requestEnd);
+        double accum = ( requestEnd.tv_sec - requestStart.tv_sec )
+                       + ( requestEnd.tv_nsec - requestStart.tv_nsec )
+                         / BILLION;
+        printf("QuickHull elapsed time: %lf (ms)\n", accum*1000);
+
         return convex;
     }
 };

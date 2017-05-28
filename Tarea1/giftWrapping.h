@@ -6,11 +6,14 @@
 #define TAREA1_GIFTWRAPPING_H
 
 #include <vector>
+#include <ctime>
 #include "Point.h"
 #include "Polygon.h"
 
 template<class T>
 class GiftWrapping {
+
+    #define BILLION 1E9
 
 public:
     GiftWrapping() {};
@@ -28,6 +31,8 @@ public:
     }
 
     Polygon<T> giftWrapping(std::vector<Point<T>> points) {
+        struct timespec requestStart, requestEnd;
+        clock_gettime(CLOCK_REALTIME,&requestStart);
 
         Point<T> pointOnHull = leftMost(points);
         Point<T> left = pointOnHull;
@@ -44,6 +49,12 @@ public:
             pointOnHull = endpoint;
 
         } while (left != pointOnHull);
+
+        clock_gettime(CLOCK_REALTIME,&requestEnd);
+        double accum = ( requestEnd.tv_sec - requestStart.tv_sec )
+                       + ( requestEnd.tv_nsec - requestStart.tv_nsec )
+                         / BILLION;
+        printf("GiftWrapping elapsed time: %lf (ms)\n", accum*1000);
         return convex;
     }
 };

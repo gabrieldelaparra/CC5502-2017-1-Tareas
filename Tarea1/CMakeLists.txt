@@ -18,5 +18,5 @@ set(CMAKE_CXX_STANDARD 11)
 #    target_link_libraries(BoostTest ${Boost_LIBRARIES})
 #endif()
 
-set(SOURCE_FILES main.cpp Point.h Vector.h Segment.h Polygon.h giftWrapping.h quickHull.h)
+set(SOURCE_FILES main.cpp Point.h Vector.h Segment.h Polygon.h giftWrapping.h quickHull.h pointGenerator.h)
 add_executable(Tarea1 ${SOURCE_FILES})

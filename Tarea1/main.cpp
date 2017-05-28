@@ -5,6 +5,7 @@
 #include "Polygon.h"
 #include "giftWrapping.h"
 #include "quickHull.h"
+#include "pointGenerator.h"
 
 int main() {
 
@@ -243,12 +244,21 @@ int main() {
     ps1.ToString();
     printf("pol1.isInside(ps1): %d\n", pol1.isInside(ps1));
 
-    std::vector<Point<double>> d = {Point<double>(1, 1), Point<double>(3, 1), Point<double>(2, 3), Point<double>(2, 2)};
+
+    printf("\nConvex Hull:\n\n");
+
     GiftWrapping<double> gw;
+    QuickHull<double> qh;
+
+    std::vector<Point<double>> d = {Point<double>(1, 1), Point<double>(3, 1), Point<double>(2, 3), Point<double>(2, 2)};
+
     printf("Leftmost:");
     gw.leftMost(d).ToString();
+
     printf("CH\n");
     gw.giftWrapping(d).ToString();
+    printf("QH\n");
+    qh.quickHull(d).ToString();
 
 
     std::vector<Point<double>> d2 = {Point<double>(5, 5),
@@ -264,10 +274,17 @@ int main() {
                                      Point<double>(8, 8)};
     printf("CH\n");
     gw.giftWrapping(d2).ToString();
-    QuickHull<double> qh;
-
     printf("QH\n");
     qh.quickHull(d2).ToString();
+
+    PointGenerator<double> pg;
+    std::vector<Point<double>> d3;
+    d3 = pg.generatePoints(1024,1000);
+
+    printf("CH\n");
+    gw.giftWrapping(d3).ToString();
+    printf("QH\n");
+    qh.quickHull(d3).ToString();
 
 
     return 0;
